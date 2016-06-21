@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.css') }}">
+	<title>Codeforces Compare Tool</title>
+</head>
+<body>
+	<h1>Solved by both</h1>
+	{% for i in both %}
+		{{ i }},
+	{% endfor %}
+	<br>
+	<h1>Solved by first</h1>
+	{% for i in only1 %}
+		{{ i }},
+	{% endfor %}
+	<br>
+	<h1>Solved by second</h1>
+	{% for i in only2 %}
+		{{ i }},
+	{% endfor %}
+</body>
+</html>
