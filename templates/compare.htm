@@ -1,23 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.css') }}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.min.css') }}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/clusterize.min.css') }}">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Codeforces Compare Tool</title>
 </head>
 <body>
-	<h1>Solved by both</h1>
-	{% for i in both %}
-		{{ i }},
-	{% endfor %}
-	<br>
-	<h1>Solved by first</h1>
-	{% for i in only1 %}
-		{{ i }},
-	{% endfor %}
-	<br>
-	<h1>Solved by second</h1>
-	{% for i in only2 %}
-		{{ i }},
-	{% endfor %}
+	<div class="container">
+		<ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+			{% if both %}
+			<li>
+				<div class="collapsible-header">Solved by both</div>
+				<div class="collapsible-body">
+					<div class="clusterize">
+						<table>
+							<thead>
+								<tr>
+									<th>Problem ID</th>
+									<th>Tags</th>
+								</tr>
+							</thead>
+						</table>
+						<div id="scrollArea" class="clusterize-scroll">
+							<table class="centered">
+								<tbody id="contentArea" class="clusterize-content">
+									{% for i in both %}
+									<tr><td><a href="http://codeforces.com/contest/{{ i.0 }}/problem/{{ i.1 }}">{{ i.0 }}{{ i.1 }}</a></td><td>{% for j in i.2 %}{{ j }}, {% endfor %}</td></tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>			
+					</div>
+				</div>
+			</li>
+			{% endif %}
+			{% if only1 %}
+			<li>
+				<div class="collapsible-header">Solved by {{ first }}</div>
+				<div class="collapsible-body">
+					<div class="clusterize">
+						<table>
+							<thead>
+								<tr>
+									<th>Problem ID</th>
+									<th>Tags</th>
+								</tr>
+							</thead>
+						</table>
+						<div id="scrollArea" class="clusterize-scroll">
+							<table class="centered">
+								<tbody id="contentArea" class="clusterize-content">
+									{% for i in only1 %}
+									<tr><td><a href="http://codeforces.com/contest/{{ i.0 }}/problem/{{ i.1 }}">{{ i.0 }}{{ i.1 }}</a></td><td>{% for j in i.2 %}{{ j }}, {% endfor %}</td></tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>			
+					</div>
+				</div>
+			</li>
+			{% endif %}
+			{% if only2 %}
+			<li>
+				<div class="collapsible-header">Solved by {{ second }}</div>
+				<div class="collapsible-body">
+					<div class="clusterize">
+						<table>
+							<thead>
+								<tr>
+									<th>Problem ID</th>
+									<th>Tags</th>
+								</tr>
+							</thead>
+						</table>
+						<div id="scrollArea" class="clusterize-scroll">
+							<table class="centered">
+								<tbody id="contentArea" class="clusterize-content">
+									{% for i in only2 %}
+									<tr><td><a href="http://codeforces.com/contest/{{ i.0 }}/problem/{{ i.1 }}">{{ i.0 }}{{ i.1 }}</a></td><td>{% for j in i.2 %}{{ j }}, {% endfor %}</td></tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>			
+					</div>
+				</div>
+			</li>
+			{% endif %}	
+		</ul>
+	</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/clusterize.min.js') }}"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.collapsible').collapsible();
+		});
+	</script>
 </body>
 </html>

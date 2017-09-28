@@ -1,0 +1,5 @@
+---
+applications:
+ - name: CF-Compare
+   host: cf-compare
+   memory: 128M
