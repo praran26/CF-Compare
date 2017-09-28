@@ -1,6 +1,6 @@
 # CF-Compare
 
-Flask application using Codeforces API to compare problems solved by two users
+Flask application using Codeforces API to compare problems solved by two users. The deployed application can be viewed here: http://cf-compare.eu-gb.mybluemix.net/
 
 - Dependencies
   - flask : Install using command ```pip install flask``` in terminal
