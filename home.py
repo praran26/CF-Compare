@@ -1,6 +1,7 @@
 from cloudant import Cloudant
 
 from flask import Flask, render_template, request,redirect,flash,url_for
+from flask_compress import Compress
 import atexit
 import cf_deployment_tracker
 import os
@@ -10,7 +11,7 @@ import requests
 cf_deployment_tracker.track()
 
 app=Flask(__name__)
-
+Compress(app)
 db_name = 'mydb'
 client = None
 db = None

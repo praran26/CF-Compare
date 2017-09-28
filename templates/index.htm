@@ -2,8 +2,6 @@
 <html>
 <head>
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/materialize.min.css') }}">
-	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Codeforces Compare Tool</title>
 	<style type="text/css">
@@ -13,7 +11,7 @@
 		bottom: 10%;
 		left:7%;  
 	}
-	</style>
+</style>
 </head>
 <body>
 	<div class="row" style="width:50%;margin: 0 auto;">
@@ -34,6 +32,8 @@
 			</center>
 		</form>
 	</div>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
 	<script type="text/javascript">
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
