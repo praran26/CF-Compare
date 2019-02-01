@@ -1,4 +1,4 @@
-Flask==0.12
+flask>=0.12.3
 requests>=2.20.0
 cf-deployment-tracker==1.0.4
 cloudant==2.4.0
