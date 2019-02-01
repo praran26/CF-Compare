@@ -48,7 +48,7 @@ def get_problems_solved(user):
 	if data['status'] == 'FAILED':
 		return None
 	for i in data['result']:
-		if i['verdict']=='OK':
+		if i['verdict']=='OK' and 'contestId' in i['problem']:
 			ans.add(tuple([i['problem']['contestId'],i['problem']['index'],tuple(i['problem']['tags'])]))
 	return ans
 

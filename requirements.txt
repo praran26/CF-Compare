@@ -1,5 +1,5 @@
-flask>=0.12.3
-requests>=2.20.0
-cf-deployment-tracker==1.0.4
-cloudant==2.4.0
-flask-compress==1.4.0
+flask>=1.0.2
+requests>=2.21.0
+cf-deployment-tracker>=1.0.5
+cloudant>=2.11.0
+flask-compress>=1.4.0
